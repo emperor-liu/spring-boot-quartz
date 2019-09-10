@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>job 管理</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+</head>
+<body>
+
+    <div class="layui-col-sm12 layui-col-md12">
+        <div class="layui-card">
+            <div class="layui-card-header">添加分类</div>
+            <div class="layui-card-body" >
+                <form lay-filter="class-form-info" id="job-form-info">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">任务名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="jobName" placeholder="请输入任务名称" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">任务详情</label>
+                            <div class="layui-input-block">
+                                <input type="text" class="layui-input" name="jobDetails">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">请输入任务执行时间</label>
+                            <div class="layui-input-block">
+                                <input type="text" class="layui-input" name="jobCorntab" placeholder="请输入任务执行时间；遵循 crontab"
+                                       autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">任务执行 URL</label>
+                            <div class="layui-input-block">
+                                <input type="text" class="layui-input" name="callBackUrl" placeholder="请输入任务执行 URL"
+                                       autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <!--<button class="layui-btn layuiadmin-btn-order" lay-submit lay-filter="add-job" >-->
+                        <!--<i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>-->
+                        <!--</button>-->
+                        <div class="layui-col-md12">
+                            <button type="button" id="addBtn-job" style="margin-left: 50%;margin-top: 10%" class="layui-btn">
+                                保存
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-sm12 layui-col-md12">
+        <div class="layui-card">
+            <div class="layui-card-header">任务列表</div>
+            <table class="layui-hide" id="job-list" lay-filter="job-table"></table>
+
+        </div>
+    </div>
+
+
+
+</body>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/js/jquery-2.1.4.min.js}"></script>
+<script th:src="@{/js/CommonService.js}"></script>
+<script th:src="@{/js/hxs-form-validator.js}"></script>
+<script th:src="@{/js/layui-table.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/jobManager.js}" ></script>
+</html>
+
+<script type="text/html" id="switchJobStatus">
+    <input type="checkbox" name="jobStatus" value="{{d.jobId}}" id="job-status-switch"
+           lay-skin="switch" lay-text="正常|异常" lay-filter="switch-jobStatus"
+           {{ d.jobStatus== '1' ? 'checked' : '' }} />
+</script>
