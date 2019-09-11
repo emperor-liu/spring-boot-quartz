@@ -12,6 +12,8 @@ import com.huxiaosu.framework.quartz.model.JobDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
+import java.util.List;
+
 /**
  * Description
  *
@@ -20,4 +22,26 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  * @date 2019/9/10 19:55
  */
 public interface JobDetailsDao extends JpaSpecificationExecutor<JobDetails>, JpaRepository<JobDetails, Integer> {
+
+    /**
+     *
+     * Description:
+     *  根据任务状态查询任务列表
+     * @param jobStatus
+     * @return: List<JobDetails>
+     * @author: liujie
+     * @date: 2019/9/11 14:40
+     */
+    List<JobDetails> findAllByJobStatus(String jobStatus);
+
+    /**
+     *
+     * Description:
+     *  根据任务 ID 查询任务
+     * @param jobId
+     * @return:  JobDetails
+     * @author: liujie
+     * @date: 2019/9/11 15:33
+     */
+    JobDetails findByJobId(String jobId);
 }

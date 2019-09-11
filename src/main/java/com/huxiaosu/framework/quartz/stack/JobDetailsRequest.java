@@ -9,6 +9,7 @@
 package com.huxiaosu.framework.quartz.stack;
 
 import lombok.Data;
+import lombok.ToString;
 
 /**
  * Description
@@ -18,11 +19,17 @@ import lombok.Data;
  * @date 2019/9/10 20:22
  */
 @Data
-public class JobDetailsRequest extends BaseRequest{
+@ToString
+public class JobDetailsRequest extends BaseRequest {
 
     public JobDetailsRequest(Integer pageNumber, Integer pageSize) {
         super.page = pageNumber;
         super.limit = pageSize;
     }
+
+    private String jobName;
+    private String jobDetails;
+    private String jobCorntab;
+    private String callBackUrl;
 }
 

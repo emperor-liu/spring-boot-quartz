@@ -34,6 +34,8 @@ public class JobLog {
     private String id;
     @Column(name = "job_id", length = 16,nullable = false)
     private String jobId;
+    @Column(name = "job_name", length = 400,nullable = false)
+    private String jobName;
     @Column(name = "create_time", length = 16)
     private Date createTime;
     @Column(name = "callback_url", nullable = false)

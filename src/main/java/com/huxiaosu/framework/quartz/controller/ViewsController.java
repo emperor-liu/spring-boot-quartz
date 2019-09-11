@@ -30,8 +30,8 @@ public class ViewsController {
     public String jobManager(){
         return "jobManager";
     }
-    @GetMapping(value = {"/jobList.html", "jobList"})
+    @GetMapping(value = {"/jobLogList.html", "jobLogList"})
     public String jobList(){
-        return "jobList";
+        return "jobLogList";
     }
 }

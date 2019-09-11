@@ -78,6 +78,19 @@
                         }
                     }
                 });
+
+                // $("#upBtn-"+options.btnId).click(function () {
+                //     let startJobUrl = options.updateUrl;
+                //     let id = $("#upBtn-"+options.btnId).attr("value");
+                //     let sendGetRequest = CommonService.sendGetRequest(startJobUrl+"/"+id);
+                //     if(CommonService.isNotNull(sendGetRequest) && sendGetRequest.status){
+                //         CommonService.alertWinMessage("启动成功");
+                //         // 重新加载右侧 列表
+                //         $.tableUtil.refresh(options.tableId.replace("#",""));
+                //     }else{
+                //         CommonService.alertWinMessage(sendGetRequest.errorMessage);
+                //     }
+                // });
                 $("#delBtn-"+options.btnId).click(function () {
                     const params = {
                         title:'警告',
